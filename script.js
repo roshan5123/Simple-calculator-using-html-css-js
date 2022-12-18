@@ -12,8 +12,7 @@ class Calculator{
     }
 
     delete(){
-
-        this.currentOperand=this.currentOperand.toString().slice(0,-1);
+        this.currentOperand=this.currentOperand.toString().slice(0,-1)
 
     }
 
@@ -73,31 +72,15 @@ class Calculator{
 
     }
 
-
-    getDisplayNumber(number){
-
-        const stringNumber = number.toString()
-        const integerDigits=parseFloat(stringNumber.split('.')[0])
-        const decimaldigits=stringNumber.split('.')[1]
-
-        let integerDisplay;
-        const floatNumber=parseFloat(number)
-
-        if(isNaN(floatNumber)) return ''
-        return floatNumber.toLocaleString('en')
-    }
-
     updateDisplay(){
             this.currentOperandTextElement.innerText=this.currentOperand
             
-            if (this.operation !=null){
-                this.previousOperandTextElement.innerText=
-                '${this.previousOperand}${this.operation}'
+            if(this.operation !== undefined){
+                this.previousOperandTextElement.innerText=`${this.previousOperand}${this.operation}`
+                return
             }
             
             this.previousOperandTextElement.innerText=this.previousOperand
-        
-        
         }
 
 }
